@@ -13,26 +13,24 @@ function writePassword() {
 }
 
 var generatePassword = function() {
-    //alert("function generate password fired");
-    
-    do {
-        var promptLength = window.prompt('How many characters would you like? Pick a number between 8 and 128.');
+    //loop until correct number is entered
+  do {
+    var promptLength = window.prompt('How many characters would you like? Pick a number between 8 and 128.');
+    //validate prompt answer
+    if (isNaN(promptLength)) {
+    window.alert("You did not pick a valid option. Try again.");
     }
-    while (promptLength === "" || promptLength === null || promptLength < 8 || promptLength > 128);
-        
-        //validate prompt answer
-        if (promptLength === "" || promptLength === null) {
-          window.alert("You did not pick a valid option. Try again.");
-          return promptLength();
-        }
-        if (promptLength > 7 && promptLength < 129) {
-          promptLength = parseInt(promptLength);
-        }
-        else {
-          window.alert("You did not pick a valid option. Try again.");
-           //return promptLength();
-        }
-      }
+    else if (promptLength < 8 && promptLength > 128) {
+    window.alert("You did not pick a valid option. Try again.");
+    }
+    else{
+        promptLength = parseInt(promptLength);
+    }
+  }
+  while (isNaN(promptLength) || promptLength < 8 || promptLength > 128);
+  console.log(promptLength)
+    
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
