@@ -5,16 +5,16 @@ var charUpperAlpha = "";
 var charNumber = ["1234567890"];
 var charSpecial = ["!@#%^&*,?%~()"];
 var passwordChar = "";
-var fullString = "";
-
+var password = "";
+var passwordText = "";
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password");
 
-  //passwordText.value = password;
+  passwordText.value = password;
 }
 
 var generatePassword = function() {
@@ -34,7 +34,7 @@ var generatePassword = function() {
   }
   while (isNaN(promptLength) || promptLength < 8 || promptLength > 128);
   console.log(promptLength)
-  //debugger;
+
   do {
     //prompt if they want lower case alpha characters
     var promptLowerAlpha = window.confirm("Do you want lower case characters?")
@@ -63,14 +63,19 @@ var generatePassword = function() {
       passwordChar += charSpecial
       console.log(passwordChar);
     }
-
+    //Get at least one type of character
     if (passwordChar == "" || passwordChar == null) {
       window.alert("You to pick at least one value. Please try again.");
     }
   }
   while (passwordChar == "" || passwordChar == null)
-
+  //debugger;
+  for (var i = 0; i < promptLength; i++) {
+    passwordSingle = passwordChar[Math.floor(Math.random() * passwordChar.length)];
+    password += passwordText; 
+    console.log(password)
+    console.log(passwordText)
+  }
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
