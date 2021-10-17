@@ -1,14 +1,11 @@
 // Assignment Code
 // create a list of allowed characters
-//var charLowerAlpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-//var charUpperAlpha = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-// var charLowerAlpha = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-// var charUpperAlpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var charLowerAlpha = ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
-var charUpperAlpha = ["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
-var charNumber = [1,2,3,4,5,6,7,8,9,0];
-var charSpecial = ['!','@','#','%','^','&','*','?','%','~','(',')'];
-var passwordChar = ""
+var charLowerAlpha = "abcdefghijklmnopqrstuvwxyz";
+var charUpperAlpha = "";
+var charNumber = ["1234567890"];
+var charSpecial = ["!@#%^&*,?%~()"];
+var passwordChar = "";
+var fullString = "";
 
 var generateBtn = document.querySelector("#generate");
 
@@ -37,37 +34,42 @@ var generatePassword = function() {
   }
   while (isNaN(promptLength) || promptLength < 8 || promptLength > 128);
   console.log(promptLength)
+  //debugger;
+  do {
+    //prompt if they want lower case alpha characters
+    var promptLowerAlpha = window.confirm("Do you want lower case characters?")
+    if (promptLowerAlpha) {
+      passwordChar += charLowerAlpha;
+      console.log(passwordChar);
+    }
 
-  //prompt if they want lower case alpha characters
-  var promptLowerAlpha = window.confirm("Do you want lower case characters?")
-  if (promptLowerAlpha) {
-    passwordChar += charLowerAlpha;
-    passwordChar += ','
-    console.log(passwordChar);
-  }
+    //ask if user wants upper case letters
+    var promptUpperAlpha = window.confirm("Do you want upper case characters?")
+    if (promptUpperAlpha) {
+      passwordChar += charLowerAlpha.toUpperCase();
+      console.log(passwordChar);
+    }
 
-  //ask if user wants upper case letters
-  var promptUpperAlpha = window.confirm("Do you want upper case characters?")
-  if (promptUpperAlpha) {
-    passwordChar += charUpperAlpha;
-    passwordChar += ','
-    console.log(passwordChar);
-  }
+    //ask if user wants numeric characters
+    var promptNumeric = window.confirm("Do you want numeric characters?")
+    if (promptNumeric) {
+      passwordChar += charNumber
+      console.log(passwordChar);
+    }
 
-  //ask if user wants numeric characters
-  var promptNumeric = window.confirm("Do you want numeric characters?")
-  if (promptNumeric) {
-    passwordChar += charNumber
-    passwordChar += ','
-    console.log(passwordChar);
-  }
+    //ask if user wants special characters
+    var promptSpecial = window.confirm("Do you want special characters?")
+    if (promptSpecial) {
+      passwordChar += charSpecial
+      console.log(passwordChar);
+    }
 
-  //ask if user wants special characters
-  var promptSpecial = window.confirm("Do you want special characters?")
-  if (promptSpecial) {
-    passwordChar += charSpecial
-    console.log(passwordChar);
+    if (passwordChar == "" || passwordChar == null) {
+      window.alert("You to pick at least one value. Please try again.");
+    }
   }
+  while (passwordChar == "" || passwordChar == null)
+
 }
 
 // Add event listener to generate button
