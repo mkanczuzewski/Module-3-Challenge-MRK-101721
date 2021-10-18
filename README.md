@@ -15,7 +15,7 @@ Usage: This site is for educational purposesly only.
 
 Credits: Mark Kanczuzewski
 
-<img src="./assets/images/PWGenCapture.JPG">
+<img src="assets/images/PWGenCapture.JPG">
 
 Copyright (c) [2021] [Mark Kanczuzewski]
 
