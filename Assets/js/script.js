@@ -33,35 +33,30 @@ var generatePassword = function() {
     }
   }
   while (isNaN(promptLength) || promptLength < 8 || promptLength > 128);
-  console.log(promptLength)
 
   do {
     //prompt if they want lower case alpha characters
     var promptLowerAlpha = window.confirm("Do you want lower case characters?")
     if (promptLowerAlpha) {
       passwordChar += charLowerAlpha;
-      console.log(passwordChar);
     }
 
     //ask if user wants upper case letters
     var promptUpperAlpha = window.confirm("Do you want upper case characters?")
     if (promptUpperAlpha) {
       passwordChar += charLowerAlpha.toUpperCase();
-      console.log(passwordChar);
     }
 
     //ask if user wants numeric characters
     var promptNumeric = window.confirm("Do you want numeric characters?")
     if (promptNumeric) {
       passwordChar += charNumber
-      console.log(passwordChar);
     }
 
     //ask if user wants special characters
     var promptSpecial = window.confirm("Do you want special characters?")
     if (promptSpecial) {
       passwordChar += charSpecial
-      console.log(passwordChar);
     }
     //Get at least one type of character
     if (passwordChar == "" || passwordChar == null) {
@@ -69,12 +64,10 @@ var generatePassword = function() {
     }
   }
   while (passwordChar == "" || passwordChar == null)
-  //debugger;
+
   for (var i = 0; i < promptLength; i++) {
     singleChar = passwordChar[Math.floor(Math.random() * passwordChar.length)];
     fullPassword += singleChar; 
-    console.log(singleChar)
-    console.log(fullPassword)
   }
   return fullPassword;
 }
