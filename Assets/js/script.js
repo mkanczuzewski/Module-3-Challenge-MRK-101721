@@ -4,9 +4,6 @@ var charLowerAlpha = "abcdefghijklmnopqrstuvwxyz";
 var charUpperAlpha = "";
 var charNumber = ["1234567890"];
 var charSpecial = ["!@#%^&*,?%~()"];
-var passwordChar = "";
-var password = "";
-var passwordText = "";
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -18,6 +15,9 @@ function writePassword() {
 }
 
 var generatePassword = function() {
+  var passwordChar = "";
+  var singleChar = "";
+  var fullPassword = "";
   //loop until correct number length is entered
   do {
     var promptLength = window.prompt('How many characters would you like? Pick a number between 8 and 128.');
@@ -71,11 +71,12 @@ var generatePassword = function() {
   while (passwordChar == "" || passwordChar == null)
   //debugger;
   for (var i = 0; i < promptLength; i++) {
-    passwordSingle = passwordChar[Math.floor(Math.random() * passwordChar.length)];
-    password += passwordText; 
-    console.log(password)
-    console.log(passwordText)
+    singleChar = passwordChar[Math.floor(Math.random() * passwordChar.length)];
+    fullPassword += singleChar; 
+    console.log(singleChar)
+    console.log(fullPassword)
   }
+  return fullPassword;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
