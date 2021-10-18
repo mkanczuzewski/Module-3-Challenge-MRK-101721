@@ -65,7 +65,7 @@ var generatePassword = function() {
     }
     //Get at least one type of character
     if (passwordChar == "" || passwordChar == null) {
-      window.alert("You to pick at least one value. Please try again.");
+      window.alert("You need to pick at least one criteria. Please try again.");
     }
   }
   while (passwordChar == "" || passwordChar == null)
